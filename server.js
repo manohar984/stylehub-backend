@@ -13,21 +13,21 @@ connectDB();
 const app = express();
 
 // CORS Configuration - Enable frontend access from any local port
-app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like curl, mobile, or postman)
-    if (!origin) return callback(null, true);
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     // Allow requests with no origin (like curl, mobile, or postman)
+//     if (!origin) return callback(null, true);
     
-    // Allow localhost on any port
-    if (/^http:\/\/localhost(:\d+)?$/.test(origin) || /^http:\/\/127\.0\.0\.1(:\d+)?$/.test(origin)) {
-      return callback(null, true);
-    }
+//     // Allow localhost on any port
+//     if (/^http:\/\/localhost(:\d+)?$/.test(origin) || /^http:\/\/127\.0\.0\.1(:\d+)?$/.test(origin)) {
+//       return callback(null, true);
+//     }
     
-    return callback(new Error('Not allowed by CORS'));
-  },
-  credentials: true
-}));
-
+//     return callback(new Error('Not allowed by CORS'));
+//   },
+//   credentials: true
+// }));
+app.use(cors("https://stylehub-frontend-chi.vercel.app/"));
 // Body parsing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
