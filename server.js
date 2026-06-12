@@ -27,7 +27,7 @@ const app = express();
 //   },
 //   credentials: true
 // }));
-app.use(cors("https://stylehub-frontend-chi.vercel.app/"));
+app.use(cors("*"));
 // Body parsing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
